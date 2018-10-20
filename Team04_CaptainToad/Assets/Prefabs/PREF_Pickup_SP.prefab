@@ -24,8 +24,9 @@ GameObject:
   - component: {fileID: 33607612205180140}
   - component: {fileID: 114217823671911100}
   - component: {fileID: 64126886640349266}
+  - component: {fileID: 114124491770065706}
   m_Layer: 0
-  m_Name: Star
+  m_Name: PREF_Pickup_SP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -100,6 +101,17 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 0}
+--- !u!114 &114124491770065706
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1683415767557892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dddf8f710f80c5f4ca43547b9c43ae37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114217823671911100
 MonoBehaviour:
   m_ObjectHideFlags: 1
