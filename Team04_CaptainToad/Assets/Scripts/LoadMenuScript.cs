@@ -21,18 +21,18 @@ public class LoadMenuScript : MonoBehaviour {
 		
 	}
 
-    private void LoadLevel1()
+    public void LoadLevel1()
     {
         SceneManager.LoadScene(1);
     }
-    private void LoadLevel2()
+    public void LoadLevel2()
     {
         if (_level2Completed == true)
         {
             SceneManager.LoadScene(2);
         }
     }
-    private void LoadLevel3()
+    public void LoadLevel3()
     {
         if (_level2Completed == true)
         {

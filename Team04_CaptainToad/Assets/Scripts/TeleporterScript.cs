@@ -21,7 +21,6 @@ public class TeleporterScript : MonoBehaviour {
     private bool _teleportCoolDown = false;
 
     private Vector3 _movement;
-    
     // Use this for initialization
     void Start ()
     {
@@ -63,6 +62,9 @@ public class TeleporterScript : MonoBehaviour {
             TeleportUp();
             _teleportCoolDown = true;
             _teleportTimer = 5.0f;
+
+            GetComponent<LoadMenuScript>()._level1Completed = true;
+            Debug.Log(GetComponent<LoadMenuScript>()._level1Completed);
         }
         if (_collision.gameObject.tag == "TeleporterTop" && _teleportCoolDown == false)
         {
