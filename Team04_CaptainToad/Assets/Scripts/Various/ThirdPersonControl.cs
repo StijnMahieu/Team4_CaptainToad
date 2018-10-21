@@ -5,11 +5,14 @@ using UnityEngine;
 public class ThirdPersonControl : MonoBehaviour {
 
     public CharControl CharControl;
-    public Vector2 LimitY = new Vector2(5, 85);
+    public Vector2 LimitY = new Vector2(-90, 90);
+    public Vector2 LimitX = new Vector2(-180, 180);
     public float SpeedRotate = 180;
     public float Speed = 5f;
     public Transform CameraY;
-    private CharacterController _controller;
+    public Transform Camera;
+    public Transform CameraHolder;
+    private CharacterController controller;
 
     public Transform Target;
 
@@ -19,8 +22,7 @@ public class ThirdPersonControl : MonoBehaviour {
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        _controller = GetComponent<CharacterController>();
-
+        controller = GetComponent<CharacterController>();
     }
 
     // Update is called once per frame
@@ -31,7 +33,8 @@ public class ThirdPersonControl : MonoBehaviour {
 
     void ProcessCameraMovements()
     {
-        
+        CameraHolder.transform.position = controller.transform.position;
+
         // Handles right joystick input
         CameraY.transform.Rotate(new Vector3(0, Input.GetAxis("Horizontal_R"), 0) * SpeedRotate * Time.deltaTime);
 
@@ -41,9 +44,8 @@ public class ThirdPersonControl : MonoBehaviour {
         CameraY.eulerAngles = new Vector3(_yRotation, CameraY.eulerAngles.y, CameraY.eulerAngles.z);
         */
 
-
-        CameraY.transform.LookAt(Target);
-        //CameraY.transform.Translate(Vector3.right * Time.deltaTime);
+        Camera.transform.LookAt(Target);
+        //Camera.transform.Translate(Vector3.forward * Time.deltaTime);
         
     }
 }

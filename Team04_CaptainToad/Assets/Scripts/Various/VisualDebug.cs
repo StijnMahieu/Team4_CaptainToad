@@ -53,7 +53,7 @@ public class VisualDebug : MonoBehaviour {
         GUILayout.Label("");
 
         GUILayout.Label("------------- BUTTONS ------------");
-        //GUILayout.Label("X: " + Input.GetButton("Run"));
+        GUILayout.Label("X: " + Input.GetButton("Action"));
         GUILayout.Label("□: " + Input.GetButton("Throw"));
         GUILayout.Label("O: " + Input.GetButton("Run"));
         GUILayout.Label("∆: " + Input.GetButton("Zoom"));

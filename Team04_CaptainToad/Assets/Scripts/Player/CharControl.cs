@@ -14,14 +14,16 @@ public class CharControl : MonoBehaviour {
     // readonly variables
     private readonly float speedRotation = 10;
     private readonly float mass = 3.0F; // defines the character mass
+    private readonly float movementSpeedDefault = 6f;
+    private readonly float activeSpeed;
+    private readonly float gravity = 20f;
+    private readonly float fallingMultiplier;
 
     // Private variables
-    private float movementSpeed = 7.5f;
-    private float gravity = 10f;
     private Vector3 impact = Vector3.zero;
-    private float activeSpeed;
-    private float fallingMultiplier;
     private CharacterController controller;
+    private Vector3 moveDirection = Vector3.zero;
+    public float jumpSpeed = 8.0F;
 
     #endregion
 
@@ -42,48 +44,23 @@ public class CharControl : MonoBehaviour {
 
     void Update()
     {
+        float _speed;
         if (controller.isGrounded)
         {
-            // We are grounded, so recalculate
-            // move direction directly from axes
+            moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+            moveDirection = transform.TransformDirection(moveDirection);
+            _speed = Input.GetButton("Run") ? movementSpeedDefault * 1.5f : movementSpeedDefault;
+            moveDirection *= _speed;
+            /*
+            if (Input.GetButton("Action"))
+                moveDirection.y = jumpSpeed;
+            */
 
-            Move = new Vector3(Input.GetAxis("Horizontal"), 0.0f, Input.GetAxis("Vertical"));
-
-            if (Input.GetButton("Run"))
-            {
-                movementSpeed *= 1.5f;
-            }
-
-            Move *= movementSpeed;
         }
+        moveDirection.y -= gravity * Time.deltaTime;
+        controller.Move(moveDirection * Time.deltaTime);
 
-        // Apply gravity. Gravity is multiplied by deltaTime twice (once here, and once below
-        // when the Move is multiplied by deltaTime). This is because gravity should be applied
-        // as an acceleration (ms^-2)
-        Move = new Vector3(Move.x, (Move.y - gravity * Time.deltaTime), Move.z);
-
-        // Move the controller
-        controller.Move(Move * Time.deltaTime);
-
-        /*
-        if (Move != Vector3.zero)
-            controller.transform.forward = new Vector3(Move.x, 0f, Move.z);
-
-        if (Move != Vector3.zero)
-            controller.transform.rotation = Quaternion.LookRotation(Move);
-        */
-    }
-
-    public void AddImpact(Vector3 dir, float force) {
-        dir.Normalize();
-        if (dir.y < 0) dir.y = -dir.y; // reflect down force on the ground
-        impact += dir.normalized * force / mass;
-        fallingMultiplier = .5f;
-    }
-
-    public void TargetRotation(Quaternion target) {
-        // Keeps character aligned with forward camera axis
-        transform.rotation = Quaternion.Slerp(transform.rotation, target, Time.deltaTime * speedRotation); //lerp rotation to given rotation
+        //if (moveDirection != Vector3.zero) controller.transform.right = new Vector3(moveDirection.x, 0f, moveDirection.z);
     }
 
     private Camera GetPlayerCam()
