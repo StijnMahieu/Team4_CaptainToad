@@ -10145,6 +10145,11 @@ Prefab:
       propertyPath: _topTeleporter
       value: 
       objectReference: {fileID: 1693392966}
+    - target: {fileID: 23381144575106916, guid: 2fe67dbb1f0d19543b32449a1b0da867,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 12166f79198e9b54791ed7b064146f3d, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2fe67dbb1f0d19543b32449a1b0da867, type: 2}
   m_IsPrefabAsset: 0
