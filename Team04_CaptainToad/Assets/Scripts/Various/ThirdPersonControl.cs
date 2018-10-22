@@ -6,7 +6,6 @@ public class ThirdPersonControl : MonoBehaviour {
 
     public CharControl CharControl;
     public Vector2 LimitY = new Vector2(-90, 90);
-    public Vector2 LimitX = new Vector2(-180, 180);
     public float SpeedRotate = 180;
     public float Speed = 5f;
     public Transform CameraY;
@@ -33,7 +32,7 @@ public class ThirdPersonControl : MonoBehaviour {
 
     void ProcessCameraMovements()
     {
-        CameraHolder.transform.position = controller.transform.position;
+        CameraHolder.transform.position =  Vector3.Slerp(controller.transform.position, CameraHolder.transform.position, Time.deltaTime);
 
         // Handles right joystick input
         CameraY.transform.Rotate(new Vector3(0, Input.GetAxis("Horizontal_R"), 0) * SpeedRotate * Time.deltaTime);
