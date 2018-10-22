@@ -259,15 +259,11 @@ MonoBehaviour:
   LimitY: {x: -90, y: 90}
   SpeedRotate: 90
   Speed: 5
-  CameraWide: {fileID: 0}
-  CameraWideY: {fileID: 4183158066091240, guid: d2c1996a2fb29f44b9f5563f81b40e7f,
+  FocusPoint: {fileID: 0}
+  CameraY: {fileID: 4009003562644348, guid: 8d18b97443796e14f8446730ffc05fbe, type: 2}
+  CameraWide: {fileID: 20758414074612412, guid: 8d18b97443796e14f8446730ffc05fbe,
     type: 2}
-  CameraWideHolder: {fileID: 4237897259288192, guid: d2c1996a2fb29f44b9f5563f81b40e7f,
-    type: 2}
-  CameraFixed: {fileID: 0}
-  CameraFixedY: {fileID: 4520938070429768, guid: aa1fb9008ab39db4fa8bf595c487dfdf,
-    type: 2}
-  CameraFixedHolder: {fileID: 4519590801832968, guid: aa1fb9008ab39db4fa8bf595c487dfdf,
+  CameraFixed: {fileID: 20925626351327536, guid: 8d18b97443796e14f8446730ffc05fbe,
     type: 2}
   Target: {fileID: 4111298603149268}
 --- !u!136 &136127196462779428

@@ -9,22 +9,17 @@ public class CameraControlsPlayer : MonoBehaviour {
 
     // Public variables
     public Vector2 LimitY = new Vector2(-90, 90);
+    private CharacterController controller;
     public float SpeedRotate = 90;
     public float Speed = 5f;
-
-    // Wide cam
-    public Camera CameraWide;
-    public Transform CameraWideY;
-    public Transform CameraWideHolder;
-
-    // Fixed cam
-    public Camera CameraFixed;
-    public Transform CameraFixedY;
-    public Transform CameraFixedHolder;
+    public Transform FocusPoint;
+    public Transform CameraY;
+    public Camera CameraWide; // Wide cam
+    public Camera CameraFixed; // Fixed cam
     public Transform Target;
 
     // Private variables
-    private float _yRotation = 0.0f;
+    private float yRotation = 0.0f;
 
     #endregion
 
@@ -41,40 +36,41 @@ public class CameraControlsPlayer : MonoBehaviour {
     {
         SelectedCam = CameraWide;
         Cursor.lockState = CursorLockMode.Locked;
+        controller = GetComponent<CharacterController>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Zoom")) SwitchCameraFocus();
+        if (Input.GetButtonDown("Zoom")) SwitchCameraFocus(SelectedCam.Equals(CameraWide));
 
         ProcessCameraMovements();
     }
 
-    private void SwitchCameraFocus()
+    private void SwitchCameraFocus(bool _toSet)
     {
-        bool _toSet = (SelectedCam.Equals(CameraWide));
-        CameraWideHolder.gameObject.SetActive(!_toSet);
-        CameraFixedHolder.gameObject.SetActive(_toSet);
+        // Flip active camera
+        CameraWide.gameObject.SetActive(!_toSet);
+        CameraFixed.gameObject.SetActive(_toSet);
 
-        //Debug.Log("Switched cam to: " + SelectedCam);
+        // Set selected cam
         SelectedCam = (_toSet) ? CameraFixed : CameraWide;
     }
 
     void ProcessCameraMovements()
     {
-        //CameraHolder.transform.position = Vector3.Slerp(controller.transform.position, CameraHolder.transform.position, Time.deltaTime);
+        //if (SelectedCam.Equals(CameraFixed)) CameraHolder.transform.position = Vector3.Slerp(controller.transform.position, CameraHolder.transform.position, Time.deltaTime);
 
         // Handles right joystick input
-        CameraWideY.transform.Rotate(new Vector3(0, Input.GetAxis("Horizontal_R"), 0) * SpeedRotate * Time.deltaTime);
+        CameraY.transform.Rotate(new Vector3(0, Input.GetAxis("Horizontal_R"), 0) * SpeedRotate * Time.deltaTime);
 
         /*
-        _yRotation += Input.GetAxis("Vertical_R") * SpeedRotate * Time.deltaTime;
-        _yRotation = Mathf.Clamp(_yRotation, LimitY.x, LimitY.y);
-        CameraY.eulerAngles = new Vector3(_yRotation, CameraY.eulerAngles.y, CameraY.eulerAngles.z);
+        yRotation += Input.GetAxis("Vertical_R") * SpeedRotate * Time.deltaTime;
+        yRotation = Mathf.Clamp(yRotation, LimitY.x, LimitY.y);
+        SelectedCam.transform.eulerAngles = new Vector3(yRotation, SelectedCam.transform.eulerAngles.y, SelectedCam.transform.eulerAngles.z);
         */
 
-        Vector3 _target = (SelectedCam.Equals(CameraFixed)) ? Target.transform.position: (Vector3.zero);
+        Vector3 _target = (SelectedCam.Equals(CameraFixed)) ? Target.transform.position: FocusPoint.position;
         //Camera.transform.Translate(Vector3.forward * Time.deltaTime);
 
         SelectedCam.transform.LookAt(_target);
