@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class TeleporterScript : MonoBehaviour {
 
+    //GetComponent<LoadMenuScript>()._level1Completed = true;
+    //Debug.Log(GetComponent<LoadMenuScript>()._level1Completed);
+
     [SerializeField]
     private CharacterController _playerToad;
 
@@ -62,9 +65,6 @@ public class TeleporterScript : MonoBehaviour {
             TeleportUp();
             _teleportCoolDown = true;
             _teleportTimer = 5.0f;
-
-            GetComponent<LoadMenuScript>()._level1Completed = true;
-            Debug.Log(GetComponent<LoadMenuScript>()._level1Completed);
         }
         if (_collision.gameObject.tag == "TeleporterTop" && _teleportCoolDown == false)
         {

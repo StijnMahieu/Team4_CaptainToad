@@ -9,6 +9,8 @@ TagManager:
   - GhostPickup
   - DiamondPickup
   - StarPickup
+  - Torch
+  - CoinPickup
   layers:
   - Default
   - TransparentFX
