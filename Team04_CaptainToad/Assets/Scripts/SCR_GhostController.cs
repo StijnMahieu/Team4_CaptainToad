@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class SCR_GhostController : MonoBehaviour
 {
@@ -114,7 +116,7 @@ public class SCR_GhostController : MonoBehaviour
     {
         if (col.gameObject.tag == "Torch" && _ghostPowerON)
         {
-            GameObject.FindWithTag("Torch").GetComponent<Collider>().isTrigger = true;
+            col.gameObject.GetComponent<Collider>().isTrigger = true;
            
         }
 
@@ -128,8 +130,8 @@ public class SCR_GhostController : MonoBehaviour
     private void OnTriggerStay(Collider col)
     {
         if (col.gameObject.tag == "Torch" && _ghostPowerON == false)
-        {    
-            Destroy(gameObject);
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
 
     }   
@@ -138,7 +140,7 @@ public class SCR_GhostController : MonoBehaviour
     {
         if (col.gameObject.tag == "Torch")
         {
-            GameObject.FindWithTag("Torch").GetComponent<Collider>().isTrigger = false;
+            col.gameObject.GetComponent<Collider>().isTrigger = false;
         }
     }
 
@@ -152,4 +154,3 @@ public class SCR_GhostController : MonoBehaviour
         }
     }
 }
-

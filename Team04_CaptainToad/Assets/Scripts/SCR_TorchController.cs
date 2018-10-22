@@ -7,12 +7,10 @@ public class SCR_TorchController : MonoBehaviour
     int _childCount;
     public int torchCount = 0;
     public bool switchPowerON = false;
-    public GameObject PREF_TriggerObject;
-    GameObject TriggerObject;
 
     void Start ()
     {
-        _childCount = this.transform.childCount;
+        _childCount = this.transform.childCount-1;
     }
 	
 	void Update ()
@@ -20,17 +18,16 @@ public class SCR_TorchController : MonoBehaviour
         //Torch controller houd stand bij van aantal torches die aan moeten zijn
         if(torchCount == _childCount && switchPowerON == false)
         {
-            //Activeer object dat moet geactiveerd worden
+            Debug.Log("U moeder");
             switchPowerON = true;         
-            TriggerObject = Instantiate(PREF_TriggerObject, transform.position, Quaternion.identity);
+
         }
-        else if(torchCount != _childCount)
+        else if(torchCount != _childCount && switchPowerON)
         {
+            Debug.Log("sssssssssssssssss moeder");
             switchPowerON = false;
-            if (TriggerObject != null)
-            {
-                Destroy(TriggerObject);
-            }
         }
-	}
+    }
+
+  
 }

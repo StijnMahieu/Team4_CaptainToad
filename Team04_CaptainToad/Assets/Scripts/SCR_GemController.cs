@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SCR_StarController : MonoBehaviour
+public class SCR_GemController : MonoBehaviour
 {
-   public int starCount = 0;
+   public int gemCount = 0;
 }
