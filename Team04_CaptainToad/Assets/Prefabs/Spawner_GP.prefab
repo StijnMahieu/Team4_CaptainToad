@@ -22,9 +22,9 @@ GameObject:
   - component: {fileID: 33265761072234124}
   - component: {fileID: 23713611873193316}
   - component: {fileID: 65285462285582112}
-  - component: {fileID: 114689134509045654}
+  - component: {fileID: 114210017172665182}
   m_Layer: 0
-  m_Name: PREF_Spawner_GP
+  m_Name: Spawner_GP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -38,7 +38,7 @@ Transform:
   m_GameObject: {fileID: 1778686964443814}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 2.84, y: -1.122, z: -1.3}
-  m_LocalScale: {x: 2.5, y: 0.3, z: 2.5}
+  m_LocalScale: {x: 1.5, y: 0.2, z: 1.5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -97,7 +97,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114689134509045654
+--- !u!114 &114210017172665182
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -105,8 +105,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 1778686964443814}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19c479941bd3afb49bc803aea607492b, type: 3}
+  m_Script: {fileID: 11500000, guid: bf81049a4e93905468d310ee1eec2152, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PREF_Pickup_GP: {fileID: 1178035462678824, guid: 1e812334891cd82499f693429ae265a1,
+  PREF_PickUp: {fileID: 1732618301419110, guid: f2c09c7011ab6314c87b2ff710557201,
     type: 2}

@@ -4,13 +4,16 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - TeleporterBase
-  - TeleporterTop
+  - Lava
+  - TorchController
+  - CoinController
+  - GemController
   - GhostPickup
+  - Destroyable
   - DiamondPickup
   - StarPickup
-  - Torch
   - CoinPickup
+  - Torch
   layers:
   - Default
   - TransparentFX

@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33941658492833254}
   - component: {fileID: 23787255085726190}
   - component: {fileID: 64550900408642376}
+  - component: {fileID: 114783747164799926}
   m_Layer: 0
   m_Name: PhasePumpkin
   m_TagString: GhostPickup
@@ -98,3 +99,14 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 6f99cfe47e2b0c341ba0577946615652, type: 3}
+--- !u!114 &114783747164799926
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1732618301419110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b38d8937f28fbea418f7cca46dfe5419, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

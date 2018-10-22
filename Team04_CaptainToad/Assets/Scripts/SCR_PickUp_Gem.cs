@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SCR_Pickup_Gem : MonoBehaviour
+public class SCR_PickUp_Gem : MonoBehaviour
 {
     SCR_GemController GemController;
 
