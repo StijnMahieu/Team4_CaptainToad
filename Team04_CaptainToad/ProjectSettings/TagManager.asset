@@ -8,12 +8,11 @@ TagManager:
   - TorchController
   - CoinController
   - GemController
-  - GhostPickup
   - Destroyable
-  - DiamondPickup
   - StarPickup
-  - CoinPickup
   - Torch
+  - TeleporterTop
+  - TeleporterBase
   layers:
   - Default
   - TransparentFX
