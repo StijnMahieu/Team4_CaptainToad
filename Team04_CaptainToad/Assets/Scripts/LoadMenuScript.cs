@@ -5,10 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class LoadMenuScript : MonoBehaviour {
 
-    public bool _level1Completed = false;
-    public bool _level2Completed = false;
-    public bool _level3Completed = false;
-
 	// Use this for initialization
 	void Start ()
     {
@@ -27,16 +23,10 @@ public class LoadMenuScript : MonoBehaviour {
     }
     public void LoadLevel2()
     {
-        if (_level2Completed == true)
-        {
-            SceneManager.LoadScene(2);
-        }
+         SceneManager.LoadScene(2);
     }
     public void LoadLevel3()
     {
-        if (_level2Completed == true)
-        {
-            SceneManager.LoadScene(3);
-        }
+        SceneManager.LoadScene(3);
     }
 }

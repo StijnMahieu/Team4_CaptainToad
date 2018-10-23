@@ -8,7 +8,7 @@ public class SCR_PickUp_Gem : MonoBehaviour
 
     private void Start()
     {
-        GemController = GameObject.FindWithTag("GemController").GetComponent<SCR_GemController>();
+        //GemController = GameObject.FindWithTag("GemController").GetComponent<SCR_GemController>();
     }
     //GEM PICK UP
     void Update()

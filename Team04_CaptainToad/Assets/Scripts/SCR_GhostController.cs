@@ -43,11 +43,11 @@ public class SCR_GhostController : MonoBehaviour
 
     private void Start()
     {
-        //Eerst kleur van de editor opslaan en zorgen dat het begint vanaf opaque
-        color = MAT_test.color;
-        color.a = 1;
-        MAT_test.color = color;
-        CoinController = GameObject.FindWithTag("CoinController").GetComponent<SCR_CoinController>();
+        ////Eerst kleur van de editor opslaan en zorgen dat het begint vanaf opaque
+        //color = MAT_test.color;
+        //color.a = 1;
+        //MAT_test.color = color;
+        //CoinController = GameObject.FindWithTag("CoinController").GetComponent<SCR_CoinController>();
     }
     void Update()
     {
