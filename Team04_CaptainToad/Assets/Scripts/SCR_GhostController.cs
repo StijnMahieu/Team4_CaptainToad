@@ -120,11 +120,22 @@ public class SCR_GhostController : MonoBehaviour
             Destroy(hit.gameObject);
         }
 
+        if (hit.gameObject.tag == "BigCoin")
+        {
+            //CoinController.coinCount += 50;
+            Destroy(hit.gameObject);
+        }
+
         if (hit.gameObject.tag == "GhostPowerEnergy")
         {
             SCR_GhostController GhostController = hit.gameObject.GetComponent<SCR_GhostController>();
             GhostPowerEnergy += 50;
             Destroy(hit.gameObject);
+        }
+
+        if (hit.gameObject.tag == "Lava")
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
 
         if (hit.gameObject.tag == "Star")
