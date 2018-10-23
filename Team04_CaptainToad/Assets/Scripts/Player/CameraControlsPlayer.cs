@@ -59,20 +59,24 @@ public class CameraControlsPlayer : MonoBehaviour {
 
     void ProcessCameraMovements()
     {
-        //if (SelectedCam.Equals(CameraFixed)) CameraHolder.transform.position = Vector3.Slerp(controller.transform.position, CameraHolder.transform.position, Time.deltaTime);
 
         // Handles right joystick input
         CameraY.transform.Rotate(new Vector3(0, Input.GetAxis("Horizontal_R"), 0) * SpeedRotate * Time.deltaTime);
+        
+        if (Input.GetAxis("Vertical_R") != 0)
+        {
+            CameraY.transform.Rotate(new Vector3(Input.GetAxis("Vertical_R"), 0, 0), Space.Self);
+            Vector3 currentRotation = CameraY.transform.localRotation.eulerAngles;
 
-        /*
-        yRotation += Input.GetAxis("Vertical_R") * SpeedRotate * Time.deltaTime;
-        yRotation = Mathf.Clamp(yRotation, LimitY.x, LimitY.y);
-        SelectedCam.transform.eulerAngles = new Vector3(yRotation, SelectedCam.transform.eulerAngles.y, SelectedCam.transform.eulerAngles.z);
-        */
-
+            // Clamp not working yet.
+            //currentRotation.x = Mathf.Clamp(currentRotation.x, LimitY.x, LimitY.y);
+            CameraY.transform.localRotation = Quaternion.Euler(currentRotation);
+        }
+        
+        // Determine focus based on active cam
         Vector3 _target = (SelectedCam.Equals(CameraFixed)) ? Target.transform.position: FocusPoint.position;
-        //Camera.transform.Translate(Vector3.forward * Time.deltaTime);
 
+        // Focus on target
         SelectedCam.transform.LookAt(_target);
     }
 
