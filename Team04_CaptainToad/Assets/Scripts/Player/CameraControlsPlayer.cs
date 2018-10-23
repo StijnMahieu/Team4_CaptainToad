@@ -8,7 +8,7 @@ public class CameraControlsPlayer : MonoBehaviour {
     #region Variables
 
     // Public variables
-    public Vector2 LimitY = new Vector2(-90, 90);
+    public Vector2 LimitY;
     private CharacterController controller;
     public float SpeedRotate = 90;
     public float Speed = 5f;
