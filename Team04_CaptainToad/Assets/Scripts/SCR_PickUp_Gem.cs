@@ -18,7 +18,6 @@ public class SCR_PickUp_Gem : MonoBehaviour
 
     void OnCollisionEnter(Collision col)
     {
-        GemController.gemCount += 1;
-        Destroy(this.gameObject);
+     
     } 
 }

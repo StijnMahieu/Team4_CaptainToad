@@ -8,7 +8,7 @@ public class SCR_PickUp_BC : MonoBehaviour
 
     private void Start()
     {
-        CoinController = GameObject.FindWithTag("CoinController").GetComponent<SCR_CoinController>();
+        //CoinController = GameObject.FindWithTag("CoinController").GetComponent<SCR_CoinController>();
     }
 
     //BIG COIN PICK UP
@@ -20,9 +20,9 @@ public class SCR_PickUp_BC : MonoBehaviour
     void OnCollisionEnter(Collision col)
     {
        
-        CoinController.coinCount += 10;
-        Debug.Log(CoinController.coinCount);
-        Destroy(this.gameObject);
+        //CoinController.coinCount += 10;
+        //Debug.Log(CoinController.coinCount);
+        //Destroy(this.gameObject);
   
     }
 }
