@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 114783747164799926}
   m_Layer: 0
   m_Name: PhasePumpkin
-  m_TagString: GhostPickup
+  m_TagString: GhostPowerEnergy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

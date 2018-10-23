@@ -11,7 +11,7 @@ public class SCR_GhostController : MonoBehaviour
     public Material MAT_test;
     Color color;
     Collider[] colliders;
-
+    SCR_CoinController CoinController;
     private float _ghostPowerEnergy = 200;
 
     public float GhostPowerEnergy
@@ -47,16 +47,16 @@ public class SCR_GhostController : MonoBehaviour
         color = MAT_test.color;
         color.a = 1;
         MAT_test.color = color;
-
+        CoinController = GameObject.FindWithTag("CoinController").GetComponent<SCR_CoinController>();
     }
     void Update()
     {
         //als spacebar wordt ingedrukt dan ghostpower activated
-        if (Input.GetKey("space"))
+        if (Input.GetButton("Action"))
         {
             GhostPower(true);
         }
-        else if (Input.GetKeyUp("space"))
+        else if (Input.GetButtonUp("Action"))
         {
             GhostPower(false);
         }
@@ -112,20 +112,40 @@ public class SCR_GhostController : MonoBehaviour
         }
     }
 
-    private void OnCollisionStay(Collision col)
+    void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        if (col.gameObject.tag == "Torch" && _ghostPowerON)
+        if (hit.gameObject.tag == "Coin" || hit.gameObject.tag == "Gem")
+        {        
+            //CoinController.coinCount += 1;
+            Destroy(hit.gameObject);
+        }
+
+        if (hit.gameObject.tag == "GhostPowerEnergy")
         {
-            col.gameObject.GetComponent<Collider>().isTrigger = true;
-           
+            SCR_GhostController GhostController = hit.gameObject.GetComponent<SCR_GhostController>();
+            GhostPowerEnergy += 50;
+            Destroy(hit.gameObject);
+        }
+
+        if (hit.gameObject.tag == "Star")
+        {
+            SceneManager.LoadScene("LevelSelection");
         }
 
         //destructable met ghost power
-        if (col.gameObject.tag == "Destroyable" && _ghostPowerON)
+        if (hit.gameObject.tag == "Destroyable" && _ghostPowerON)
         {
-            Destroy(col.gameObject);
+            Destroy(hit.gameObject);
+        }
+
+        if (hit.gameObject.tag == "Torch" && _ghostPowerON)
+        {
+            hit.gameObject.GetComponent<Collider>().isTrigger = true;
+
         }
     }
+
+   
 
     private void OnTriggerStay(Collider col)
     {

@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 114984867340567684}
   m_Layer: 0
   m_Name: Gem
-  m_TagString: GemController
+  m_TagString: Gem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

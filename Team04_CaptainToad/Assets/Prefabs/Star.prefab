@@ -22,10 +22,10 @@ GameObject:
   - component: {fileID: 33715760504290428}
   - component: {fileID: 23866169892065674}
   - component: {fileID: 114844299648327552}
-  - component: {fileID: 64126254712052348}
+  - component: {fileID: 65478274343524580}
   m_Layer: 0
   m_Name: Star
-  m_TagString: StarPickup
+  m_TagString: Star
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -85,20 +85,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1402000842840358}
   m_Mesh: {fileID: 4300000, guid: b0e79e5eea625784f9755f71a9fec3a0, type: 3}
---- !u!64 &64126254712052348
-MeshCollider:
+--- !u!65 &65478274343524580
+BoxCollider:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1402000842840358}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 1
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: b0e79e5eea625784f9755f71a9fec3a0, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 2.6232858, y: 2.5326757, z: 0.85287094}
+  m_Center: {x: 0.0005279779, y: 1.3116639, z: 0.0047524865}
 --- !u!114 &114844299648327552
 MonoBehaviour:
   m_ObjectHideFlags: 1

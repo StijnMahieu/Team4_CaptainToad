@@ -23,9 +23,10 @@ GameObject:
   - component: {fileID: 23216132299054910}
   - component: {fileID: 114714433322563002}
   - component: {fileID: 65193491389041478}
+  - component: {fileID: 54183617699952234}
   m_Layer: 0
   m_Name: Big_Coin
-  m_TagString: CoinPickup
+  m_TagString: BigCoin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -85,6 +86,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1974126540129022}
   m_Mesh: {fileID: 4300000, guid: 5f469f883e67ade458830ad62e6a1284, type: 3}
+--- !u!54 &54183617699952234
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1974126540129022}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!65 &65193491389041478
 BoxCollider:
   m_ObjectHideFlags: 1
