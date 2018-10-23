@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class MovingObstacles : MonoBehaviour {
 
-    private Vector3 _moveDirection = new Vector3(1, 0, 0);
+    private Vector3 _moveDirection = new Vector3(0, 0, 1);
     private Vector3 _startPosition;
 
     [SerializeField]
     private float _movementSpeed;
 
-    private float _minBlockPosition = 1.8f;
-    private float _maxBlockPosition = 3.5f;
+    private float _maxBlockPosition = -1.8f;
+    private float _minBlockPosition = -3.5f;
 
     private void Start()
     {
@@ -24,18 +24,18 @@ public class MovingObstacles : MonoBehaviour {
 
     private void MovingBlocks()
     {
-        if (_startPosition.x == _minBlockPosition)
+        if (_startPosition.z == _minBlockPosition)
         {
             this.transform.Translate(_moveDirection * _movementSpeed * Time.deltaTime);
-            if (this.transform.position.x >= _maxBlockPosition || this.transform.position.x <= _minBlockPosition)
+            if (this.transform.position.z >= _maxBlockPosition || this.transform.position.z <= _minBlockPosition)
             {
                 _moveDirection = -_moveDirection;
             }
         }
-        if (_startPosition.x == _maxBlockPosition)
+        if (_startPosition.z == _maxBlockPosition)
         {
             this.transform.Translate(-_moveDirection * _movementSpeed * Time.deltaTime);
-            if (this.transform.position.x >= _maxBlockPosition || this.transform.position.x <= _minBlockPosition)
+            if (this.transform.position.z >= _maxBlockPosition || this.transform.position.z <= _minBlockPosition)
             {
                 _moveDirection = -_moveDirection;
             }
