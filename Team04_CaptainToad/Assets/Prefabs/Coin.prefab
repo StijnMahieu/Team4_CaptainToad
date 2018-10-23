@@ -21,8 +21,8 @@ GameObject:
   - component: {fileID: 4527722336185358}
   - component: {fileID: 33178009507396768}
   - component: {fileID: 23364280838041740}
-  - component: {fileID: 64595621859029002}
   - component: {fileID: 114489696712910390}
+  - component: {fileID: 65592978881397030}
   m_Layer: 0
   m_Name: Coin
   m_TagString: CoinController
@@ -85,20 +85,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1007204645488508}
   m_Mesh: {fileID: 4300000, guid: 5f469f883e67ade458830ad62e6a1284, type: 3}
---- !u!64 &64595621859029002
-MeshCollider:
+--- !u!65 &65592978881397030
+BoxCollider:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1007204645488508}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 1
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: 5f469f883e67ade458830ad62e6a1284, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 8.938548, y: 8.970426, z: 1.988002}
+  m_Center: {x: 0, y: 4.485213, z: 0}
 --- !u!114 &114489696712910390
 MonoBehaviour:
   m_ObjectHideFlags: 1

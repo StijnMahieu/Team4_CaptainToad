@@ -19,7 +19,7 @@ public class SCR_Spawn_GP : MonoBehaviour
         if (_pickUpSpawned == false)
         {
             _pickUpSpawned = true;
-            _pickup = Instantiate(PREF_PickUp, transform.position - new Vector3(0, transform.position.z / 2, 0), Quaternion.identity);
+            _pickup = Instantiate(PREF_PickUp, transform.position - new Vector3(0, -0.5f, 0), Quaternion.identity);
         }
 
         //Check object status & als er geen pickup is spawn dan pick up na spawnTijd sec
